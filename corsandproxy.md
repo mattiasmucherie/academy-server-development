@@ -13,11 +13,11 @@ npm install express axios cors --save
 
 ## Get places from academy.brunstrom.me
 
-The endpoint http://academy.brunstrom.me/places.json returns data as JSON, create a endpoint/route in your project eg `app.get("/places")` that Proxies the response from places.json and returns it with `res.send()`. Make sure it have the correct headers for the kind of data it respond with. If the endpoint respond with anything other then 200 you need to handle that.
+The endpoint https://academy-api.vercel.app/api/places.json returns data as JSON, create a endpoint/route in your project eg `app.get("/places")` that Proxies the response from places.json and returns it with `res.send()`. Make sure it have the correct headers for the kind of data it respond with. If the endpoint respond with anything other then 200 you need to handle that.
 
 Use axios to fetch the data. You have the [documentation for axios here](https://github.com/axios/axios)
 
-The endpoint http://academy.brunstrom.me/slowplaces.json is really slow, so what you want to do is fetch the data and cache it.
+The endpoint https://academy-api.vercel.app/api/slowplaces.json is really slow, so what you want to do is fetch the data and cache it.
 
 Your endpoint should be something like `app.get("/places2/")`.
 
@@ -27,7 +27,7 @@ Create a data type fit to save the response from slowplaces.json and cache it. W
 
 ## Nobel prizes
 
-The endpoint http://academy.brunstrom.me/prizes returns nobel prize winners. Create a endpoint/route in your project that fetches the data and send it as a response. Eg `app.get("/prizes", (req, res))`.
+The endpoint https://api.nobelprize.org/2.1/nobelPrizes returns nobel prize winners. Create a endpoint/route in your project that fetches the data and send it as a response. Eg `app.get("/prizes", (req, res))`.
 
 Make sure to cache the prizes since the file is quite big.
 
