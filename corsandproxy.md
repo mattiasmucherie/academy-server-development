@@ -11,7 +11,7 @@ npm install express axios cors --save
 
 ---
 
-## Get places from academy.brunstrom.me
+## Get places from academy-api.vercel.app
 
 The endpoint https://academy-api.vercel.app/api/places.json returns data as JSON, create a endpoint/route in your project eg `app.get("/places")` that Proxies the response from places.json and returns it with `res.send()`. Make sure it have the correct headers for the kind of data it respond with. If the endpoint respond with anything other then 200 you need to handle that.
 
