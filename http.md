@@ -1,40 +1,40 @@
 # Http exercises
 
-## Curl
+~~## Curl~~
 
-curl is a simple command line based HTTP client that you can use to make HTTP-requests.
+~~curl is a simple command line based HTTP client that you can use to make HTTP-requests.~~
 
-Start git bash inside visual studio code and make some requests.
+~~Start git bash inside visual studio code and make some requests.~~
 
-The -I parameter will only show headers.
+~~The -I parameter will only show headers.~~
 
-Example:
+~~Example:~~
 
-```
+~~```~~
 curl www.google.se
 curl -I www.google.se
 curl -I academy.brunstrom.me
-```
+~~```~~
 
-## Curl icanhazdadjoke.com
+~~## Curl icanhazdadjoke.com~~
 
-icanhazdadjoke.com is a HTTP API that returns dad jokes.
+~~icanhazdadjoke.com is a HTTP API that returns dad jokes.~~
 
-Depending on what headers you're sending the response will differ.
+~~Depending on what headers you're sending the response will differ.~~
 
-If you tell the server that you're **Accept** `text/plain` you will get a text response.
-If you tell the server that you're **Accept** `application/json` you will get a json-response.
-If you tell the server that you're **Accept** `text/html` you will get a html-response.
+~~If you tell the server that you're **Accept** `text/plain` you will get a text response.~~
+~~If you tell the server that you're **Accept** `application/json` you will get a json-response.~~
+~~If you tell the server that you're **Accept** `text/html` you will get a html-response.~~
 
-Try to get some different responses with the accept header.
+~~Try to get some different responses with the accept header.~~
 
-To add a header, have a -H "headerinformation" to the curl program.
+~~To add a header, have a -H "headerinformation" to the curl program.~~
 
-Example:
+~~Example:~~
 
-```http
+~~```http~~
 curl -H "Accept: text/plain" https://icanhazdadjoke.com/
-```
+~~```~~
 
 ## Http-client in NodeJS
 
