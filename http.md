@@ -76,7 +76,7 @@ The browser will always send a GET-request, to test other method you can use [Po
 
 ### 4.
 
-In the previous task where we responded with "Hello World" when calling http://localhost:3000/hello we should now be able to take in a GET-parameter with the help of a query-string. A querystring always starts with a ? after the address, and then its based of key/value parameters. Like the following: http://localhost:3000/hello**?**key=value and it uses a & to separate key/values. http://localhost:3000/hello?name=thomas&age=42
+In the previous task where we responded with "Hello World" when calling http://localhost:3000/hello we should now be able to take in a GET-parameter with the help of a query-string. A querystring always starts with a ? after the address, and then its based of key/value parameters. Like the following: http://localhost:3000/hello?key=value and it uses a & to separate key/values. http://localhost:3000/hello?name=thomas&age=42
 
 Make it so that if we requesting http://localhost:3000/hello?name=Thomas the server will respond with the text "Hello Thomas" instead of "Hello world".
 
