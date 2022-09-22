@@ -89,6 +89,12 @@ Example:
 http://localhost:3000/weekday/friday responds with "Oh yeah, it´s friday baby"
 
 http://localhost:3000/weekday/monday responds with "Ooooh noooez, it´s monday".
+  
+## Get places!  
+
+The endpoint https://academy-api.vercel.app/api/places.json returns data as JSON, create a endpoint/route in your project eg app.get("/places") that fetches (Proxies) the response from places.json and returns it with res.send(). Make sure it have the correct headers for the kind of data it respond with. If the endpoint respond with anything other then 200 you need to handle that.
+
+Use axios to fetch the data (or fetch if you have node.js 18 or later). You have the [documentation for axios here](https://github.com/axios/axios)
 
 ## Get the images
 
