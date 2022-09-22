@@ -13,11 +13,7 @@ npm install express axios cors --save
 
 ## Get places from academy-api.vercel.app
 
-The endpoint https://academy-api.vercel.app/api/places.json returns data as JSON, create a endpoint/route in your project eg `app.get("/places")` that Proxies the response from places.json and returns it with `res.send()`. Make sure it have the correct headers for the kind of data it respond with. If the endpoint respond with anything other then 200 you need to handle that.
-
-Use axios to fetch the data. You have the [documentation for axios here](https://github.com/axios/axios)
-
-The endpoint https://academy-api.vercel.app/api/slowplaces.json is really slow, so what you want to do is fetch the data and cache it.
+Like in the previous task when we used the endpoint https://academy-api.vercel.app/api/places.json, we should now do the same thing but with the endpoint https://academy-api.vercel.app/api/slowplaces.json. It is really slow though, so what you want to do is fetch the data and cache it.
 
 Your endpoint should be something like `app.get("/places2/")`.
 
