@@ -8,7 +8,7 @@ Inside the terminal run `npm init` and answer the questions how you see fit (pre
 
 Add express to your application with `npm install --save express nodemon`
 
-Create a new file inside the folder named server.js.
+Create a new file, inside the folder, named server.js.
 
 Import expressjs as following
 
