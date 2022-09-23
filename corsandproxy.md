@@ -66,10 +66,10 @@ The following endpints should be available
 
 ```javascript
 app.get("/friends"); //Get all friends
-app.get("/friend/:userId"); //Get a friend by id
-app.post("/friend"); //Add a friend, body should be json
-app.put("/friend/:userId"); //Update a friend with userId, body should be json
-app.delete("/friend/:userId"); //Delete a friend by id
+app.get("/friends/:userId"); //Get a friend by id
+app.post("/friends"); //Add a friend, body should be json
+app.put("/friends/:userId"); //Update a friend with userId, body should be json
+app.delete("/friends/:userId"); //Delete a friend by id
 ```
 
 > hint: Have a look at how to post/put json-data to expressjs. `app.use(express.json())` and `req.body`
