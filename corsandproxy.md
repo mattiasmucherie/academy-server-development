@@ -6,7 +6,7 @@ Create a new expressjs project, you can call it github-users.
 
 ```console
 npm init -y
-npm install express axios cors --save
+npm install express axios cors nodemon --save
 ```
 
 ---
