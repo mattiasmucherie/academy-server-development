@@ -1,17 +1,18 @@
 # NodeJS
 
-## Task 1
+Task 1: Print a Message to the Console using Node.js
 
-Create a javascript file that prints the phrase "Hello sunshine, whats cooking good looking?" to the terminal/console.
-Try both stdout and console.log.
-
-Run the program with `node <filename.js>`
+1. Create a new JavaScript file.
+1. In the JavaScript file, write a command to print the message "Hello sunshine, what's cooking good looking?" to the console using either `console.log()` or `process.stdout.write()`.
+1. Save the JavaScript file with a name of your choice and a `.js` extension.
+1. Open a terminal or command prompt window and navigate to the directory where the JavaScript file is saved.
+   Run the program by typing `node <filename.js>` in the terminal or command prompt window.
 
 ## Task 2
 
 ### Task 2.1
 
-Write a program that lists the files in a directory when run. If the start of the program doesnt get any parameters list the files in the current directory. If you supply a parameter, list the files in that directory.
+Write a program that lists the files in a directory. When the program is executed without any parameters, it should list the files in the current directory. When a parameter is provided, it should list the files in that directory.
 
 Example:
 
@@ -44,27 +45,21 @@ $ node lecture2.js ./images/
 
 ### Task 2.2
 
-Do the same thing but use the synchronous function of readDir(Sync) to get the same result.
-Change the program so that you can supply a parameter -a to use sync or async to readdir.
-
-> Hint: -a as a paramter
+Refactor the program to use the synchronous function `readdirSync()` to achieve the same result. Additionally, modify the program to accept a parameter `-a` to switch between synchronous and asynchronous versions of `readdir()`.
 
 ## Task 3
 
-In canvas you can find a zipfile with images, download and extract into the images folder. The name of the files is structured with the following pattern. <photographer>-<location>.jpg. Which is fine if you want to sort the images by photographer.
+In the Canvas platform, you can find a zip file containing a collection of images that you can download and extract into the `images` folder. The names of the image files follow a pattern of `<photographer>-<location>.jpg`, which works well for sorting by photographer but not for sorting by location.
 
-It's not that good when you want to sort by location, make a program that copies the images to a new directory named after the city the image is take in.
+Your task is to write a program that copies the images to a new directory named after the city in which the image was taken. When you run the program with `node <filename>`, it should create a folder for each city and copy the corresponding images into that folder.
 
-Call your program with `node <filename>` and the program should then put each photo in a folder named after it's location.
-
-For example: the joe-berlin.jpg and frank.berlin.jpg should be copied into a folder named berlin, joe-paris.jpg and mary-paris.jpg should be copied into a folder named paris.
-
-The program should print out a list of files that didn't fit the format in the end.
+For example, `joe-berlin.jpg` and `frank-berlin.jpg` should be copied into a folder named `berlin`, while `joe-paris.jpg` and `mary-paris.jpg` should be copied into a folder named `paris`. The program should also print out a list of any files that did not fit the expected format.
 
 Example output:
-node pictureSorter.js
 
-```
+```shell
+$ node pictureSorter.js
+
 Unhandled files:
   random.jpg
   README.md
@@ -72,14 +67,12 @@ Unhandled files:
 
 ## Task 4
 
-Write a program that converts a csv-file to a JSON-file.
+Your task is to write a program that converts a CSV file to a JSON file. The file `persons.csv` contains a list of people, where each line represents a person's name and email address separated by a semicolon (;). For example, `Mattias Mucherie;mattias.mucherie@1337.tech`.
 
-The file persons.cvs contains a number of people with their name and email-address on each line. The values are seperated with ;.
+Your program should read the lines from the CSV file and convert the data into a JSON format. You should create an array, where each person and their email address is represented as an object. The program should then write the resulting JSON data to a new file named `persons.json`.
 
-You should write a program that reads the lines and convert the content of the file into a fitting JSON-format. For instance an array with each person/email combo as a object.
+> To accomplish this, you can use the JSON.stringify() method to convert the data to a JSON string.
 
-The program should then write to a new file, persons.json with the right format.
+As a bonus, you can make the program interactive by asking the user if they want to convert from CSV to JSON or JSON to CSV. You should also handle the case where the `persons.json` file does not exist using `fs.exists` or `fs.existsAsync` methods.
 
-> Hint: JSON.stringify.
-
-Bonus: Make the program ask the user if he/she wants to convert from cvs to json or json to csv. Handle if the persons.json file does not exists. `fs.exists` or `fs.existsAsync`
+> Note: You may use either synchronous or asynchronous methods for reading and writing files, but it is recommended to use asynchronous methods to avoid blocking the main thread.

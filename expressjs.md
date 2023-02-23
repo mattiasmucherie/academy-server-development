@@ -2,15 +2,11 @@
 
 ## Create your first expressjs application
 
-Open a new folder inside visual studio code and open the terminal.
+To create your first expressjs application, start by opening a new folder inside your preferred code editor and opening the terminal. Then, run `npm init` inside the terminal and answer the questions as you see fit.
 
-Inside the terminal run `npm init` and answer the questions how you see fit (pressing only enter is ok)
+Next, add express to your application using `npm install --save express nodemon`.
 
-Add express to your application with `npm install --save express nodemon`
-
-Create a new file, inside the folder, named server.js.
-
-Import expressjs as following
+Create a new file named server.js inside the folder, and import expressjs into it as follows:
 
 ```javascript
 const express = require("express");
@@ -19,106 +15,116 @@ const app = express();
 app.all("/", (req, res) => {
   res.send("Hello world");
 });
-//Add routes
+// Add routes
 
 app.listen(3000, () => {
   console.log(`Server is now listening on port ${3000}`);
 });
 ```
 
-Configurate your package.json script section and add "serve" : "nodemon server.js"
+You can add additional routes to your application as needed.
 
-Then you can start your server with `npm run serve` inside the terminal. Nodemon will watch for file-changes in your project so we don't have to restart the server after each file change.
+To make it easier to start the server and automatically reload changes during development, you can configure the script section of your package.json file with `"serve": "nodemon server.js"`. This allows you to start the server with `npm run serve` in the terminal, and `nodemon` will watch for changes to files in your project and automatically reload the server.
 
 ## Add a route that returns a random number
 
-Refactor your code from the first task and add a route `/number` that resonds with a random number.
+In your Express application that you created earlier, add a new route `/number` that returns a random number. When a user sends a GET request to the `/number` endpoint, the server should generate and respond with a random number.
 
-So when calling http://localhost:3000/number you should get a number as a response.
+So when calling `http://localhost:3000/number` you should get a number as a response.
 
 Does it work? If not, why?
 
-> hint! Since we have app.all earlier it thrumps our other route, express will look up the routes in the same order they're added.
+> hint! If the server doesn't respond with a random number, make sure to check the order in which you added your routes. Keep in mind that the order of routes matter in Express.
 
 ## Add a route that returns a string
 
-Add two new routes that respond to GET requests on the route `/test1` and `/test2`
+Create an Express.js application with two new routes `/test1` and `/test2`. Both should respond to GET requests.
 
-Use `res.send()` to send "Academy" from one of the routes and `<html><body><h1>Academy</h1></body></html>` from the other one.
+In the first route, use `res.send()` to send the string "Brights" as a response.
 
-Test both of them from a browser, try to use `res.end()` instead of `res.send()`, what differense does it make?
+In the second route, use `res.send()` to send an HTML page containing the following code as a response:
+
+```html
+<html>
+  <body>
+    <h1>Brights</h1>
+  </body>
+</html>
+```
+
+Once the routes are implemented, test them from a browser by navigating to `http://localhost:3000/test1` and `http://localhost:3000/test2`. Make sure you can see the expected responses.
+
+Optionally, try replacing `res.send()` with `res.end()` in both routes and see what differences it makes in the responses.
 
 ## Add a route that returns a object
 
-Add another endpoint that responds with an object when we're calling the endpoint `/book`.
+Add a new endpoint to your Express application with the route `/book` that returns an object as a response.
 
-Create a new object that represents a book. Define some properties on the object, for example title, author and year. Use `res.send()` to send the object as response.
+Create an object that represents a book and add properties like title, author, and year. Use `res.send()` to send the book object as the response.
 
-How does it look in the browser? What headers does express send back?
+Test this endpoint by visiting the route in your browser. Take note of the headers that Express sends back in the response.
 
-Add another endpoint `/books` that returns a array with a couple of book-objects like earlier in the task. Send the response with `res.send()` and check the response in a browser again. Does it change anything from the `/book` response?
+Next, create another endpoint with the route `/books` that returns an array of book objects as the response, similar to the `/book` endpoint.
+
+Send the response with `res.send()` and test it in your browser. Does the response differ from the `/book` response?
 
 ## Use query parameters
 
-Without express we needed to fetch the querystring manually when we got a request. With express we will have access to the query parameters with the query object that is a property on the request object. So in short, query parameters is accessable with `req.query`
+In express, query parameters can be accessed through the `req.query` object instead of manually parsing the query string.
 
-Add a new endpoint that listens to GET requests on the endpoint `/hello`. If the query parameter `name` is set, return the string "hello <name>".
+Add a new GET endpoint at `/hello`. If the query parameter `name` is provided, respond with the string `"Hello <name>!"` where `<name>` is the value of the `name` query parameter.
 
-Example:
+For example, if the request is made to `http://localhost:3000/hello?name=Zaphod`, the server should respond with the text "Hello Zaphod!".
 
-http://localhost:3000/hello?name=Zaphod
+If the `name` query parameter is not provided, respond with the text "Hello sunshine, hope you're doing well!".
 
-In browser: Hello Zaphod
+Try to modify the endpoint to handle multiple `name` query parameters in the URL, for example: `http://localhost:3000/hello?name=Zaphod&name=Trillian&name=Slartibartfast`.
 
-If there is no query parameter, respond with the text "Hello sunshine, hope you´re doing well!"
+What happens to the query parameters? Can you modify the endpoint so that it greets each name individually, like this:
 
-Try to add so we can add multiple names to the route, for example:
-
-http://localhost:3000/hello?name=Zaphod&name=Trillian&name=Slartibartfast
-
-What happends to the query parameter? can you make it so all the names will be greeted with the text "Hello Zaphod\nHello Trillian\nHello Slartibartfast"?
+```
+Hello Zaphod!
+Hello Trillian!
+Hello Slartibartfast!
+```
 
 ## Is it monday or friday?
 
-Create a endpoint, for example: `/weekday` that if it is monday it will respond with "Oooh noooez, it`s monday" and if it's friday respond with "Oh yeah, it´s friday baby".
+Create an endpoint, for example: `/weekday`, that responds with a message based on the current day of the week. If it is Monday, the response should be "Oooh noooez, it's Monday" and if it's Friday the response should be "Oh yeah, it's Friday baby".
 
-Add a url-parameter example `/weekday/:weekday` that responds with different text depending on what day the user adds to the path/endpoint.
+Add a URL parameter, for example: `/weekday/:day`, that responds with different messages based on the day provided in the URL. For example, if the user visits `http://localhost:3000/weekday/friday`, the response should be "Oh yeah, it's Friday baby", and if the user visits `http://localhost:3000/weekday/monday`, the response should be "Oooh noooez, it's Monday".
 
-Example:
+## Get places!
 
-http://localhost:3000/weekday/friday responds with "Oh yeah, it´s friday baby"
+Create a new endpoint in your Express project, for example, `app.get("/places")`, that fetches data as JSON from `https://academy-api.vercel.app/api/places.json`. Use `fetch` (if on NodeJs 18, check by writing in the terminal `node -v`) to fetch the data and return it with res.send(). Make sure to set the appropriate headers for the type of data being returned.
 
-http://localhost:3000/weekday/monday responds with "Ooooh noooez, it´s monday".
-  
-## Get places!  
-
-The endpoint https://academy-api.vercel.app/api/places.json returns data as JSON, create a endpoint/route in your project eg app.get("/places") that fetches (Proxies) the response from places.json and returns it with res.send(). Make sure it have the correct headers for the kind of data it respond with. If the endpoint respond with anything other then 200 you need to handle that.
-
-Use axios to fetch the data (or fetch if you have node.js 18 or later). You have the [documentation for axios here](https://github.com/axios/axios)
+If the endpoint returns a response other than 200, you should handle it accordingly.
 
 ## Get the images
 
-Create a folder inside your expressjs project that is named images.
+Create a new folder named "images" inside your ExpressJS project.
 
-Copy the images from earlier exercises with images of cities into the static folder.
+Copy the images you want to serve into the images folder.
 
-Tell expressjs to serve static files from the images folder with the help of express.static. You can find documentation on the following link: https://expressjs.com/en/starter/static-files.html
+Use `express.static` to serve static files from the images folder. Check out the documentation on this link: https://expressjs.com/en/starter/static-files.html.
 
 ## Get the users
 
-Since you have a json-file ready with persons from a earlier exercise, copy that file into the same directory as the express project.
+Since you have a json-file ready with persons from an earlier exercise, copy that file into the same directory as the express project. Then, create a GET endpoint that will return the content of the file as a JSON response when called. To achieve this, create an endpoint with the URL `/users/`.
 
-Create a GET endpoint `/users/` that returns the content of the file as a json response.
-
-Make sure that you don't have to read the file from disk every time a request to `/users` is made. There are serveral ways to solve this, think about a solution and ask the theacher if you get stuck or want to reflect on your solution.
+It's important to note that you shouldn't have to read the file from the disk every time a request to `/users` is made. There are several ways to solve this problem, so think about a solution that works best for you. If you get stuck or want to reflect on your solution, don't hesitate to ask the teacher for help.
 
 ## Get the users again
 
-Add another endpoint `/users/:name` that takes an argument :name that you use to filter the users data. Respond with a JSON-array that only contains the names that matches the :name parameter.
+Create a new endpoint in your ExpressJS project called `/users/:name` that accepts a parameter called `name`. This parameter will be used to filter the users data.
+
+When this endpoint is called, respond with a JSON array that only contains the names from the data that match the `name` parameter.
+
+Make sure to properly handle cases where there are no matches found for the `name` parameter.
 
 ## Add to the users
 
-Create a new POST endpoint `/users` that can recieve a new user. So if a user of your API calls `/users` with the POST method and the BODY contains a name and email you'll add it to your users data.
+Create a new POST endpoint `/users` that can receive a new user. So if a user of your API calls `/users` with the POST method and the BODY contains a name and email you'll add it to your users data.
 
 Example:
 
