@@ -126,27 +126,19 @@ Make sure to properly handle cases where there are no matches found for the `nam
 
 Create a new POST endpoint `/users` that can receive a new user. So if a user of your API calls `/users` with the POST method and the BODY contains a name and email you'll add it to your users data.
 
+Add the possibility that if the user defines the `Content-Type: application/json` the endpoint reads the JSON body instead of using post data.
+
 Example:
 
 ```console
-POST /users HTTP/1.1
-Host: localhost:3000
-User-Agent: curl/7.55.1
-Accept: */*
-
-name=Ford Prefect&email=ford@prefect.com
+{
+    "name": "Ford",
+    "email": "ford@ford.com"
+}
 ```
-
-### Bonus: Add with JSON
-
-Add the possibility that if the user defines the Content-Type: application/json the endpoint reads the JSON body instead of using post data.
 
 > Hint: look at the express.json() middleware.
 
 ```javascript
 app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.post("/", (req, res) => {
-  console.log(req.body);
-});
 ```
