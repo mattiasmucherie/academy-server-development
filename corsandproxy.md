@@ -4,8 +4,8 @@
 
 Create a new project using expressjs, follow the steps below and name your project "github-users":
 
-1. Create a folder called `github-users`
-1. Open your terminal or command prompt.
+1. Create a folder
+1. Open your terminal or command prompt in that folder
 1. Run the command "npm init -y" to create a new npm package file with default settings.
 1. Run the command "npm install express axios cors nodemon --save" to install the necessary packages for your expressjs project, including express, axios, cors, and nodemon.
 1. After the installation is complete, your new expressjs project is ready to use with the name "github-users".
@@ -16,10 +16,10 @@ Create a new project using expressjs, follow the steps below and name your proje
 
 Like in a previous task when we used the endpoint https://academy-api.vercel.app/api/places.json, we should now do the same thing but with the endpoint https://academy-api.vercel.app/api/slowplaces.json. It is really slow though, so what you want to do is fetch the data and cache it.
 
-You should do teh following steps:
+You should do the following steps:
 
 1. Use the endpoint https://academy-api.vercel.app/api/slowplaces.json with the HTTP GET method to get the data. However, since the endpoint is slow, you should cache the data for subsequent requests.
-1. Define a new route in your Express application with a path of "/places2/" using the HTTP GET method.
+1. Define a new route in your Express application with a path of `"/places2/"` using the HTTP GET method.
 1. Create a new data type that can store the response from the `/slowplaces.json` endpoint, and use it to cache the data.
 1. When a request is made to the `/places2/` endpoint, check if the data is already cached. If so, retrieve it from the cache and return it to the client. If not, fetch the data from the API, store it in the cache, and return it to the client.
 1. Make sure that subsequent requests to the "/places2/" endpoint are fast by returning the cached data.
@@ -37,7 +37,7 @@ Create an endpoint in your Express project that retrieves data from the Nobel Pr
 1. Use the endpoint https://api.nobelprize.org/2.1/nobelPrizes with the HTTP GET method to get the Nobel Prize winners data.
 1. Define a new route in your Express application with a path of "/prizes" using the HTTP GET method.
 1. When a request is made to the "/prizes" endpoint, fetch the data from the API and send it back as a response. Also, cache the data to improve the performance of subsequent requests.
-1. Add a search parameter to the "/prizes" endpoint, so if a user requests your API with "/prizes/[year]", only data from that year is returned in the response.
+1. Add a search parameter to the "/prizes" endpoint, so if a user requests your API with "/prizes?year=1901", only data from that year is returned in the response.
 1. Implement other ways to filter the data in the response, based on your requirements.
 
 Your final endpoint should look something like app.get("/prizes/:year", (req, res)) to enable searching by year.
