@@ -36,11 +36,11 @@ Create an endpoint in your Express project that retrieves data from the Nobel Pr
 
 1. Use the endpoint https://api.nobelprize.org/2.1/nobelPrizes with the HTTP GET method to get the Nobel Prize winners data.
 1. Define a new route in your Express application with a path of "/prizes" using the HTTP GET method.
-1. When a request is made to the "/prizes" endpoint, fetch the data from the API and send it back as a response. Also, cache the data to improve the performance of subsequent requests.
-1. Add a search parameter to the "/prizes" endpoint, so if a user requests your API with "/prizes?year=1901", only data from that year is returned in the response.
+1. When a request is made to the `/prizes` endpoint, fetch the data from the API and send it back as a response. Also, cache the data to improve the performance of subsequent requests.
+1. Add a search parameter to the `/prizes` endpoint, so if a user requests your API with `/prizes/:year`, only data from that year is returned in the response.
 1. Implement other ways to filter the data in the response, based on your requirements.
 
-Your final endpoint should look something like app.get("/prizes/:year", (req, res)) to enable searching by year.
+Your final endpoint should look something like `app.get("/prizes/:year", (req, res))` to enable searching by year.
 
 Ensure to add error handling and any other necessary features as per your requirements.
 
