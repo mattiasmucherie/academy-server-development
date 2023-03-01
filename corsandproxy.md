@@ -111,8 +111,9 @@ _Bonus: Make sure the web page is responsive and works well on different screen 
 
 ## Ok, now what?
 
-Take some time to explore the concept of middleware in Express and how it can be used to enhance the functionality of your API. Additionally, investigate how you can integrate Handlebars as a template engine to create a website alongside your API.
+Take some time to explore the concept of middleware in Express and how it can be used to enhance the functionality of your API.
+Additionally, investigate how you can [integrate EJS](https://blog.logrocket.com/how-to-use-ejs-template-node-js-application/) as a template engine to create a website alongside your API.
 
-Once you have some understanding of these concepts, create a website that uses your API to fetch and display data. Use Handlebars to render the data in a user-friendly format.
+Once you have some understanding of these concepts, create a website that uses your API to fetch and display data. Use EJS to render the data in a user-friendly format.
 
 If you need further guidance on the architectural setup, let me know and I'll provide some advice.
